@@ -1,6 +1,4 @@
-<div class="container">
-  <button style="margin-top: 10px; " class="btn btn-success">Carrinho {{carrinho.length}}</button>
-</div>
+<app-header></app-header>
 <div class="container">
   <h1>Novidades da Semana</h1>
   <div class="row">
@@ -16,7 +14,9 @@
 
 <div class="container">
   <h2>Carrinho</h2>
-  <div><p>Total: {{total | currency:'BRL':true}}</p></div>
+  <div>
+    <p>Total: {{total | currency:'BRL':true}}</p>
+  </div>
   <div *ngFor="let item of carrinho">
     <div class="row">
       <div class="col-md-2">

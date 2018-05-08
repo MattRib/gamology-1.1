@@ -1,12 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-//import { Pagina1Component } from './pagina1/pagina1.component';
+import { ProdutosComponent } from './produtos/produtos.component';
+import { CarrinhoComponent } from "./carrinho/carrinho.component";
+import { CadastroComponent } from "./cadastro/cadastro.component";
 //import { Pagina2Component } from './pagina2/pagina2.component';
 
 const routes: Routes = [
-//{ path: '', redirectTo: '/pagina1', pathMatch: 'full' },
-//{ path: 'pagina1', component: Pagina1Component },
-//{ path: 'pagina2', component: Pagina2Component }
+{ path: '', redirectTo: '/produtos', pathMatch: 'full' },
+{ path: 'produtos', component: ProdutosComponent },
+{ path: 'carrinho', component: CarrinhoComponent },
+{ path: 'cadastro', component: CadastroComponent }
 
 ];
 

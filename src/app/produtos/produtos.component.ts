@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Produto } from "../model/produto";
 import { PRODUTOS } from "../model/mock-produto";
+import { StorageService } from "../services/storage.service";
 
 @Component({
   selector: 'app-produtos',
@@ -14,19 +15,22 @@ export class ProdutosComponent implements OnInit {
   carrinho: Produto[]; //produtos recebido no método é adicionado em carrinho
   total: number = 0;
 
-  constructor() {
-    this.carrinho = new Array<Produto>();
+  constructor(public storage: StorageService) {//injetando o service StorageService
+    // Não esquecer de declarar o Storage no app.module.ts
+    this.carrinho = storage.getCarrinho()
   }
 
   ngOnInit() {
   }
 
-  addCarrinho(produto: Produto) {
-    if (!this.verificarItemCarrinho(produto)){
-    this.carrinho.push(produto);
-    this.totalCarrinho();
-    }  
-}
+  addCarrinho(produto: Produto) { // Metodo que recebe o produto
+    if (!this.verificarItemCarrinho(produto)) {
+
+      this.carrinho.push(produto);
+      this.totalCarrinho();
+      this.storage.setCarrinho(this.carrinho);
+    }
+  }
 
   totalCarrinho(): void {
     let tot = 0;
