@@ -1,27 +1,47 @@
+<app-header></app-header>
 <div class="container">
-  <form [formGroup]="formGroup" (ngSubmit)="enviar">
+  <h1>Pesquisa de CEP</h1>
+  <form [formGroup]="formGroup" (ngSubmit)="enviar" class="form-group">
     <div>
       <label>Nome</label>
-      <input formControlName="nome" type="text" />
+      <input formControlName="nome" type="text" class="form-control"/>
       <p *ngIf="formGroup.controls.nome.dirty && formGroup.controls.nome.errors">Valor inválido</p>
     </div>
     <div>
-      <label>Endereço</label>
-      <input formControlName="endereco" type="text" />
-      <p *ngIf="formGroup.controls.endereco.dirty && formGroup.controls.endereco.errors">Valor inválido</p>
+      <label>CEP</label>
+      <input [(ngModel)]="cep" formControlName="cep" type="text" class="form-control"/>
+      <p *ngIf="formGroup.controls.cep.dirty && formGroup.controls.cep.errors">Valor inválido</p>
     </div>
     <div>
-      <label>E-mail</label>
-      <input formControlName="email" type="text" />
-      <p *ngIf="formGroup.controls.email.dirty && formGroup.controls.email.errors">Valor inválido</p>
+      <button (click)="consultaCep()" type="button" class="btn btn-outline-info">Consultar</button><button style="margin-left: 8px;" type="button" class="btn btn-outline-warning">Não sabe o seu CEP?</button>
     </div>
     <div>
-      <label>Senha</label>
-      <input formControlName="senha" type="text" />
-      <p *ngIf="formGroup.controls.senha.dirty && formGroup.controls.senha.errors">Valor inválido</p>
+      <label style="margin-top: 5px;">Logradouro</label>
+      <input formControlName="logradouro" type="text" class="form-control"/>
+      <p *ngIf="formGroup.controls.logradouro.dirty && formGroup.controls.logradouro.errors">Valor inválido</p>
     </div>
     <div>
-      <button type="submit">Enviar</button>
+      <label>Complemento</label>
+      <input formControlName="complemento" type="text" class="form-control"/>
+      <p *ngIf="formGroup.controls.complemento.dirty && formGroup.controls.complemento.errors">Valor inválido</p>
+    </div>
+    <div>
+      <label>Bairro</label>
+      <input formControlName="bairro" type="text" class="form-control"/>
+      <p *ngIf="formGroup.controls.bairro.dirty && formGroup.controls.bairro.errors">Valor inválido</p>
+    </div>
+    <div>
+      <label>Localidade</label>
+      <input formControlName="localidade" type="text" class="form-control"/>
+      <p *ngIf="formGroup.controls.localidade.dirty && formGroup.controls.localidade.errors">Valor inválido</p>
+    </div>
+    <div>
+      <label>UF</label>
+      <input formControlName="uf" type="text" class="form-control"/>
+      <p *ngIf="formGroup.controls.uf.dirty && formGroup.controls.uf.errors">Valor inválido</p>
+    </div>
+    <div>
+      <button type="submit" [disabled]="formGroup.invalid" class="btn btn-outline-success">Enviar</button>
     </div>
   </form>
 </div>

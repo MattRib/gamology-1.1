@@ -6,16 +6,17 @@ import { CadastroComponent } from "./cadastro/cadastro.component";
 //import { Pagina2Component } from './pagina2/pagina2.component';
 
 const routes: Routes = [
-{ path: '', redirectTo: '/produtos', pathMatch: 'full' },
-{ path: 'produtos', component: ProdutosComponent },
-{ path: 'carrinho', component: CarrinhoComponent },
-{ path: 'cadastro', component: CadastroComponent }
+    { path: '', redirectTo: '/produtos', pathMatch: 'full' },
+    { path: 'produtos', component: ProdutosComponent },
+    { path: 'cadastro', component: CadastroComponent },
+    { path: 'carrinho', component: CarrinhoComponent }
+
 
 ];
 
 @NgModule({
-imports: [ RouterModule.forRoot(routes) ],
-exports: [ RouterModule ]
+    imports: [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
 })
 
-export class AppRoutingModule {}
+export class AppRoutingModule { }

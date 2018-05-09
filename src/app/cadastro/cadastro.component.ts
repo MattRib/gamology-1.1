@@ -8,24 +8,33 @@ import { FormGroup, Validators, FormBuilder } from "@angular/forms";
   styleUrls: ['./cadastro.component.css']
 })
 export class CadastroComponent implements OnInit {
-  
+
+  cep : string;
 
   formGroup: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
 
     this.formGroup = this.formBuilder.group({
-      nome : ['',[Validators.required, Validators.minLength(3)]],
-      endereco : ['',[Validators.required, Validators.minLength(5)]],
-      email : ['',[Validators.required, Validators.email]],
-      senha : ['',[Validators.required, Validators.minLength(6),Validators.maxLength(10)]],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
+      cep: ['', [Validators.required, Validators.minLength(8), Validators.maxLength(8)]],
+      logradouro: [''],
+      complemento: [''],
+      bairro: [''],
+      localidade: [''],
+      uf: ['']
+
     });
   }
 
   ngOnInit() {
   }
 
-  enviar(){
+  enviar() {
     console.log(this.formGroup.value);
+  }
+
+  consultaCep() {
+    console.log(this.cep);
   }
 }
